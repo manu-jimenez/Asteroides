@@ -1,0 +1,6 @@
+res://scripts/ship.gd
+res://scenes/World.tscn
+res://scenes/Ship.tscn
+res://scripts/world.gd
+res://scenes/ShipRB.tscn
+res://scripts/ship_rb.gd

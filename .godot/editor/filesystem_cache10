@@ -1,0 +1,12 @@
+63f7b34db8d8cdea90c76aacccf841ec
+::res://::1767985202
+.gitignore.txt::TextFile::-1::1767808295::0::1::::<><><>0<>0<><>::
+icon.svg::CompressedTexture2D::7727074125678172328::1767807684::1767807694::1::::<><><>0<>0<>880844f29f13cdec8d4cb0c8f04e83f3<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
+::res://assets/::1767807869
+::res://config/::1767807892
+::res://scenes/::1767985204
+Ship.tscn::PackedScene::2644825929047748747::1767985209::0::1::::<><><>0<>0<><>::uid://bf1gacwe5dcsi::::res://scripts/ship_rb.gd
+World.tscn::PackedScene::3716052410298973054::1767985202::0::1::::<><><>0<>0<><>::uid://b6lhl1l4oldrr::::res://scripts/world.gd<>uid://bdxf5qro8som2::::res://scenes/Ship.tscn
+::res://scripts/::1767984332
+ship_rb.gd::GDScript::2791403164699765996::1767984332::0::1::::<>RigidBody2D<><>0<>0<><>::
+world.gd::GDScript::4585429038385806327::1767983593::0::1::::<>Node2D<><>0<>0<><>::
