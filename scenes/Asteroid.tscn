@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://gwqg4ptwhxvy"]
+
+[ext_resource type="Script" uid="uid://bnp7cv0ewekec" path="res://scripts/asteroid.gd" id="1_f35hr"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3suc8"]
+radius = 32.0
+
+[node name="Asteroid" type="RigidBody2D"]
+script = ExtResource("1_f35hr")
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_3suc8")
+
+[node name="Visual" type="Polygon2D" parent="."]

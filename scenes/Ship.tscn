@@ -2,11 +2,11 @@
 
 [ext_resource type="Script" uid="uid://bf1gacwe5dcsi" path="res://scripts/ship.gd" id="1_ln6wt"]
 
-[node name="ShipRb" type="RigidBody2D"]
+[node name="Ship" type="RigidBody2D"]
 script = ExtResource("1_ln6wt")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-polygon = PackedVector2Array(16, 0, -10, 8, -10, 8)
+polygon = PackedVector2Array(16, 0, -10, 8, -10, -8)
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
 polygon = PackedVector2Array(16, 0, -10, 8, -10, -8)

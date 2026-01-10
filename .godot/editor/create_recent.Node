@@ -1,6 +1,12 @@
+PanelContainer
+HSlider
+Label
+HBoxContainer
+VBoxContainer
+CanvasLayer
 Polygon2D
-CollisionPolygon2D
-RigidBody2D
 CollisionShape2D
+RigidBody2D
+CollisionPolygon2D
 Camera2D
 Node2D
