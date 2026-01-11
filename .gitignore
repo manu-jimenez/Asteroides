@@ -1,6 +1,7 @@
 # Godot
 .import/
 .export/
+.godot
 *.translation
 *.tmp
 *.temp
