@@ -1,7 +1,13 @@
 # scripts/world.gd
 extends Node2D
 
-@onready var ship := $Ship
+@onready var fuel_bar: ProgressBar = $UI/FuelBox/FuelBar
+@onready var fuel_label: Label = $UI/FuelBox/FuelLabel
+
+@onready var game_over_label: Label = $UI/GameOverLabel
+var is_game_over := false
+
+@onready var ship: Ship = $Ship
 var cam: Camera2D
 
 # Sliders parametros
@@ -25,6 +31,10 @@ func _ready() -> void:
 	# Inicializa UI
 	_apply_tuning_from_sliders()
 
+	ship.refuel_full()
+	_update_fuel_ui()
+	game_over_label.visible = false
+
 	# Conecta señales
 	sld_thrust.value_changed.connect(_on_tuning_changed)
 	sld_damp.value_changed.connect(_on_tuning_changed)
@@ -43,15 +53,39 @@ func _ready() -> void:
 
 
 func _process(_delta: float) -> void:
+	_update_fuel_ui()
+	_check_game_over()
+
 	if Input.is_action_just_pressed("restart"):
+		get_tree().paused = false
 		get_tree().reload_current_scene()
-	
+
 	if Input.is_action_just_pressed("toggle_tuning"):
 		$UI/TuningPanel.visible = not $UI/TuningPanel.visible
 		
-	if Input.is_action_just_pressed("pause"):
+	if Input.is_action_just_pressed("pause") and not is_game_over:
 		get_tree().paused = not get_tree().paused
 		print("PAUSED =", get_tree().paused)
+
+
+func _update_fuel_ui() -> void:
+	var maxf: float = max(1.0, ship.max_fuel)
+	var f: float = clamp(ship.fuel, 0.0, maxf)
+
+	fuel_bar.value = f / maxf
+
+
+func _check_game_over() -> void:
+	if is_game_over:
+		return
+
+	if ship.fuel <= 0.0:
+		is_game_over = true
+		game_over_label.visible = true
+		# Optional: freeze world physics but keep UI
+		get_tree().paused = true
+		# Set linear damp high so the ship stops
+		ship.linear_damp = sld_damp.max_value
 	
 func _on_tuning_changed(_v: float) -> void:
 	_apply_tuning_from_sliders()
