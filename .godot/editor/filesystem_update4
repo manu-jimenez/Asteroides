@@ -1,5 +1,4 @@
-res://scenes/Asteroid.tscn
-res://scripts/asteroid.gd
-res://scripts/world.gd
 res://scenes/World.tscn
-res://scenes/Ship.tscn
+res://scripts/ship.gd
+res://scripts/world.gd
+res://scripts/grid_overlay.gd

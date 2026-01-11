@@ -1,3 +1,4 @@
+Node2D
 PanelContainer
 HSlider
 Label
@@ -9,4 +10,3 @@ CollisionShape2D
 RigidBody2D
 CollisionPolygon2D
 Camera2D
-Node2D
