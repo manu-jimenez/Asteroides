@@ -2,8 +2,8 @@
 extends RigidBody2D
 class_name Ship
 
-@export var thrust_force: float = 900.0
-@export var turn_speed: float = 3.5   # rad/s
+@export var thrust_force: float = 750.0
+@export var turn_speed: float = 4.5   # rad/s
 @export var max_speed: float = 900.0
 
 @export var max_fuel: float = 500.0
@@ -16,7 +16,7 @@ func _ready() -> void:
 	print("Ship freeze=", freeze, " custom_integrator=", custom_integrator)
 
 	# Un poco de amortiguación arcade
-	linear_damp = 0.3
+	linear_damp = 0.9
 	angular_damp = 6.0
 	gravity_scale = 0.0
 
@@ -38,7 +38,7 @@ func _process(delta: float) -> void:
 
 func _physics_process(delta: float) -> void:	
 	_dbg_accum += delta
-	if _dbg_accum >= 0.25:
+	if _dbg_accum >= 0.33:
 		_dbg_accum = 0.0
 		if Input.is_action_pressed("thrust"):
 			print("THRUST pressed | paused=", get_tree().paused,
@@ -49,9 +49,9 @@ func _physics_process(delta: float) -> void:
 				" pos=", global_position,
 				" lin_vel=", linear_velocity,
 				" paused=", get_tree().paused)
-		var t := _turn_input()
-		if t != 0.0:
-			print("TURN input =", t, " paused=", get_tree().paused)
+		#var t := _turn_input()
+		#if t != 0.0:
+		#	print("TURN input =", t, " paused=", get_tree().paused)
 
 	if get_tree().paused:
 		return
